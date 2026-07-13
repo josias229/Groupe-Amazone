@@ -633,23 +633,23 @@ h6 {
 #preloader:before {
   content: "";
   position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  background: url('../../logo.svg') no-repeat center center;
+  background-size: contain;
+  animation: animate-preloader 1.2s ease-in-out infinite alternate;
 }
 
 @keyframes animate-preloader {
   0% {
-    transform: rotate(0deg);
+    transform: scale(0.8);
+    opacity: 0.6;
   }
-
   100% {
-    transform: rotate(360deg);
+    transform: scale(1.1);
+    opacity: 1;
   }
 }
 
