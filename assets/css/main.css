@@ -18,23 +18,35 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #f7f6ef; /* Crème */
-  --default-color: #0b0586; /* Bleu profond */
-  --heading-color: #0a02a2; /* Bleu profond */
-  --accent-color: #ea560c; /* Orange vif */
-  --surface-color: #ffffff; /* White for cards/boxes to stand out slightly from crème */
-  --contrast-color: #ffffff; /* Contrast color for text */
+:root {
+  --background-color: #f7f6ef;
+  /* Crème */
+  --default-color: #0b0586;
+  /* Bleu profond */
+  --heading-color: #0a02a2;
+  /* Bleu profond */
+  --accent-color: #ea560c;
+  /* Orange vif */
+  --surface-color: #ffffff;
+  /* White for cards/boxes to stand out slightly from crème */
+  --contrast-color: #ffffff;
+  /* Contrast color for text */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #0b0586;  /* The default color of the main navmenu links */
-  --nav-hover-color: #ea560c; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #f7f6ef; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #0b0586; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ea560c; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #0b0586;
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #ea560c;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #f7f6ef;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #0b0586;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ea560c;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -45,11 +57,16 @@
 }
 
 .dark-background {
-  --background-color: #352e8b; /* Indigo */
-  --default-color: #f7f6ef; /* Crème */
-  --heading-color: #f7f6ef; /* Crème */
-  --accent-color: #ea560c; /* Orange */
-  --surface-color: #0a02a2; /* Bleu très sombre */
+  --background-color: #352e8b;
+  /* Indigo */
+  --default-color: #f7f6ef;
+  /* Crème */
+  --heading-color: #f7f6ef;
+  /* Crème */
+  --accent-color: #ea560c;
+  /* Orange */
+  --surface-color: #0a02a2;
+  /* Bleu très sombre */
   --contrast-color: #ffffff;
 }
 
@@ -647,6 +664,7 @@ h6 {
     transform: scale(0.8);
     opacity: 0.6;
   }
+
   100% {
     transform: scale(1.1);
     opacity: 1;
@@ -956,18 +974,32 @@ section,
 
 .services .content .service-item {
   background-color: var(--surface-color);
-  padding: 20px 30px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  border-left: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  padding: 35px 28px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   position: relative;
+  height: 100%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  margin-bottom: 24px;
+}
+
+.services .content .service-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
 .services .content .service-item .number {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  font-weight: 400;
-  color: color-mix(in srgb, var(--default-color), transparent 80%);
+  right: 20px;
+  top: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 88%);
+  color: var(--accent-color);
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
 .services .content .service-item .service-item-icon {
@@ -980,18 +1012,6 @@ section,
   width: 50px;
 }
 
-.services .content .service-item .service-item-icon:before {
-  position: absolute;
-  content: "";
-  transform: rotate(45deg);
-  z-index: -1;
-  left: -20px;
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-right: 40px solid var(--accent-color);
-  display: none;
-}
-
 .services .content .service-item .service-item-icon>span {
   color: var(--default-color);
   font-size: 4rem;
@@ -1000,39 +1020,14 @@ section,
 .services .content .service-item .service-item-content .service-heading {
   font-size: 20px;
   color: var(--default-color);
-  font-weight: 400;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .services .content .service-item .service-item-content p {
   font-size: 15px;
-}
-
-@media (min-width: 769px) {
-  .services .content [class^=col-]:nth-child(4n+4) .service-item {
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  }
-
-  .services .content [class^=col-]:nth-last-child(-n+4) .service-item {
-    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  }
-}
-
-@media (max-width: 768px) {
-  .services .content [class^=col-]:nth-child(2n+2) .service-item {
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  }
-
-  .services .content [class^=col-]:last-child .service-item,
-  .services .content [class^=col-]:nth-last-child(2) .service-item {
-    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  }
-}
-
-@media (max-width: 576px) {
-  .services .content [class^=col-] .service-item {
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    margin-bottom: 10px;
-  }
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1050,6 +1045,8 @@ section,
 
 .about .content .img-overlap {
   margin-top: -150px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
 }
 
 .about p {
@@ -1071,6 +1068,11 @@ section,
   color: var(--contrast-color);
   text-transform: uppercase;
   font-size: 1.3rem;
+}
+
+.about-3 img {
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 /*--------------------------------------------------------------
@@ -1107,24 +1109,34 @@ section,
 .services-2 .service-item {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: var(--surface-color);
 }
 
 .services-2 .service-item:before {
   content: "";
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.75) 100%);
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   position: absolute;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0.6;
+  visibility: visible;
   z-index: 1;
-  transition: 0.3s all ease;
+  transition: opacity 0.4s ease;
 }
 
 .services-2 .service-item img {
-  transition: 0.5s all ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
   transform: scale(1);
 }
 
@@ -1134,25 +1146,31 @@ section,
   bottom: 20px;
   left: 20px;
   right: 20px;
-  transition: 0.3s all ease;
-  transform: translateY(100%);
-  opacity: 0;
-  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .services-2 .service-item .service-item-contents .service-item-category {
   color: var(--accent-color);
   text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 2px;
 }
 
 .services-2 .service-item .service-item-contents .service-item-title {
   color: var(--contrast-color);
+  font-size: 1.25rem;
+  font-weight: 700;
   margin-bottom: 0;
 }
 
 .services-2 .service-item:hover:before {
-  opacity: 1;
-  visibility: visible;
+  opacity: 0.85;
 }
 
 .services-2 .service-item:hover .service-item-contents {
@@ -1171,23 +1189,30 @@ section,
   top: 50%;
   transform: translateY(-50%);
   z-index: 9;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   background: var(--contrast-color);
-  background-color: none;
+  color: var(--default-color);
   border: none;
-  transition: 0.3s all ease;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .services-2 .navigation-prev i,
 .services-2 .navigation-next i {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  line-height: 1;
 }
 
 .services-2 .navigation-prev:hover,
 .services-2 .navigation-next:hover {
   background-color: var(--accent-color);
   color: var(--contrast-color);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .services-2 .navigation-prev {
@@ -1221,23 +1246,81 @@ section,
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
-.testimonials .testimonial img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 20px;
+.testimonials {
+  padding: 80px 0;
 }
 
-.testimonials .testimonial blockquote p {
-  font-size: 20px;
+.testimonials .testimonial-item {
+  background-color: var(--surface-color);
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonials .testimonial-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.testimonials .stars {
+  color: #ffb703;
+  font-size: 1.1rem;
+}
+
+.testimonials .testimonial-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: var(--default-color);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.testimonials .testimonial-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid color-mix(in srgb, var(--accent-color), transparent 30%);
+}
+
+.testimonials .client-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.testimonials .client-role {
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
   font-weight: 500;
 }
 
-.testimonials .testimonial .client-name {
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  color: var(--accent-color);
+.testimonials .swiper {
+  padding-bottom: 55px;
+}
+
+.testimonials .swiper-pagination {
+  bottom: 10px;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 75%);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+  width: 32px;
+  border-radius: 6px;
 }
 
 /*--------------------------------------------------------------
@@ -1245,35 +1328,56 @@ section,
 --------------------------------------------------------------*/
 .recent-posts .post-item {
   background: var(--surface-color);
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.recent-posts .post-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.recent-posts .post-item .post-img {
+  overflow: hidden;
+  position: relative;
 }
 
 .recent-posts .post-item .post-img img {
-  transition: 0.5s;
+  transition: transform 0.5s ease;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recent-posts .post-item:hover .post-img img {
+  transform: scale(1.08);
 }
 
 .recent-posts .post-item .post-date {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 15px;
+  bottom: 15px;
   background-color: var(--accent-color);
   color: var(--contrast-color);
   text-transform: uppercase;
-  font-size: 13px;
-  padding: 6px 12px;
-  font-weight: 500;
+  font-size: 12px;
+  padding: 6px 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .recent-posts .post-item .post-content {
-  padding: 30px;
+  padding: 28px;
 }
 
 .recent-posts .post-item .post-title {
   color: var(--heading-color);
   font-size: 20px;
   font-weight: 700;
-  transition: 0.3s;
+  transition: color 0.3s ease;
   margin-bottom: 15px;
 }
 
@@ -2267,4 +2371,156 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+# Global Modern UI Enhancements (Border-Radius & Shadows)
+--------------------------------------------------------------*/
+.btn, 
+.btn-primary, 
+.btn-outline-light, 
+.btn-cta {
+  border-radius: 30px !important;
+  padding: 12px 28px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.btn-primary, .btn-cta {
+  box-shadow: 0 6px 18px rgba(234, 86, 12, 0.3);
+}
+
+.btn:hover, .btn-primary:hover, .btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(234, 86, 12, 0.4);
+}
+
+.tags-widget ul a {
+  border-radius: 20px;
+}
+
+.contact .info-item,
+.contact .php-email-form {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.form-control, .form-select {
+  border-radius: 10px;
+}
+
+/*--------------------------------------------------------------
+# Full Product Catalog Section
+--------------------------------------------------------------*/
+.catalog-section {
+  padding: 80px 0;
+}
+
+.catalog-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 45px;
+}
+
+.catalog-filters .filter-btn {
+  background: var(--surface-color);
+  color: var(--default-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.catalog-filters .filter-btn:hover,
+.catalog-filters .filter-btn.active {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 6px 18px rgba(234, 86, 12, 0.3);
+}
+
+.product-card {
+  background-color: var(--surface-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+.product-card .product-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.product-card .product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img-wrap img {
+  transform: scale(1.08);
+}
+
+.product-card .product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .product-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.product-card .product-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 10px;
+}
+
+.product-card .product-desc {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.product-card .product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  padding-top: 15px;
+  margin-top: auto;
 }
